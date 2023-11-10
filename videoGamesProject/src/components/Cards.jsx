@@ -17,19 +17,27 @@ const Cards = ({currentPage,onPageChange}) => {
   
   return (
     <div className='divCards'>
-      <div className='divCardsContainer'>
-        {
-          videoGamesToDisplay?.map((videogame)=>{
-            return <Card key={videogame.id} id={videogame.id} image={videogame.background_image} name={videogame.name} genres={videogame.genres} created={videogame.created}/>
-          })
-        }
-      </div>
+        <Pagination
+              videoGamesPerPage={videoGamesPerPage}
+              totalVideoGames={videogamesFromRedux.length}
+              currentPage={currentPage}
+              onPageChange={onPageChange}
+              sup={true}
+        />
+        <div className='divCardsContainer'>
+          {
+            videoGamesToDisplay?.map((videogame)=>{
+              return <Card key={videogame.id} id={videogame.id} image={videogame.background_image} name={videogame.name} genres={videogame.genres} created={videogame.created}/>
+            })
+          }
+        </div>
 
         <Pagination
           videoGamesPerPage={videoGamesPerPage}
           totalVideoGames={videogamesFromRedux.length}
           currentPage={currentPage}
           onPageChange={onPageChange}
+          sup = {false}
         />
 
     </div>

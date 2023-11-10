@@ -48,16 +48,17 @@ const reducer = (state = initialState, action) => {
                         }
                 }                
         case FILTER_VIDEOGAMES_BY_GENRE:        
-            const genre = action.payload
-                if(genre == 'allGenres'){
+            const genre_id = action.payload
+                if(genre_id == 'allGenres'){
                     return {
                         ...state,
                         filteredVideogames : [...state.allVideogames]
                     }
                 }
-                const filteredVideogamesByGenre = [...state.allVideogames].filter((videogame) => {
-                    return videogame.genres.some((genre) => genre.id == action.payload )
-                });
+                const filteredVideogamesByGenre = [...state.allVideogames].filter((videogame) => 
+                    videogame.genres.some((genre) => genre.id == genre_id )
+                );
+                
                 return {
                     ...state,
                     filteredVideogames : filteredVideogamesByGenre
@@ -67,6 +68,12 @@ const reducer = (state = initialState, action) => {
         case ORDER_VIDEOGAMES:
              const tag = action.payload;
              let orderedVideogames = [];
+             if(tag == 'NoOrder'){
+                return {
+                    ...state,
+                    filteredVideogames : state.filteredVideogames
+                }
+             }
              if(tag == 'AscendingName'){
                 orderedVideogames = [...state.filteredVideogames].sort((a,b) => a.name.localeCompare(b.name));
                 return {

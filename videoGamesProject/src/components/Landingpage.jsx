@@ -17,7 +17,7 @@ const Landingpage = () => {
               zIndex:-1,
               maskImage: 'linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1))',
             }}>
-            <source src="/background.mp4" type="video/mp4" />
+            <source src="/background.mp4" type="video/mp4"/>
           </video>
           <div className="overlayContent">
             <h1 className='neonText'>The Videogames</h1>

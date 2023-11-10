@@ -9,15 +9,20 @@ const SearchBar = ({loading,setLoading}) => {
         setName(event.target.value);
     }
     const handleClick = () => {
-      setLoading(true);
+        setLoading(true);
         dispatch(getVideogames(name)).then(() => {
-          setLoading(false); 
+          setLoading(false);
+          setName(''); 
         });
     }
   return (
     <div className='divSearchBar'>
-        <input type='text' onChange={handleChange} value={name}/>
-        <button onClick={handleClick}>Search Videogames</button>
+        <div className='containerInputSearch'>
+            <input id='nameVideogame' name='nameVideogame' type='text' className='inputSearchVideogame'  onChange={handleChange} value={name} required/>
+            <label htmlFor='nameVideogame' className='labelSearchInput'>Search Videogames</label>
+        </div>
+        
+        <button className='searchVideogameButton' onClick={handleClick}>Search</button>
     </div>
   )
 }

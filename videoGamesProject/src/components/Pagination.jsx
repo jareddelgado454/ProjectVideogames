@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Pagination = ({ videoGamesPerPage, totalVideoGames, currentPage, onPageChange }) => {
+const Pagination = ({ videoGamesPerPage, totalVideoGames, currentPage, onPageChange, sup}) => {
 
     const pageNumbers = [];
 
@@ -12,13 +12,30 @@ const Pagination = ({ videoGamesPerPage, totalVideoGames, currentPage, onPageCha
         <div className='divPagination'>
             <nav>
                 <ul className="pagination">
-                    {pageNumbers.map((number) => (
-                    <li key={number} className={`page-item ${number === currentPage ? 'active' : ''}`}>
-                        <button onClick={() => onPageChange(number)} className="page-link">
-                            {number}
+                    {currentPage > 1 && (
+                        <li className="page-item">
+                        <button onClick={() => onPageChange(currentPage - 1)} className={sup ? 'page-link-sup':'page-link'}>
+                            Anterior
                         </button>
-                    </li>
+                        </li>
+                    )}
+
+                    {pageNumbers.map((number) => (
+                        <li key={number} className={`page-item ${number === currentPage ? 'active' : ''}`}>
+                            <button onClick={() => onPageChange(number)} className={sup ? 'page-link-sup':'page-link'}>
+                                {number}
+                            </button>
+                        </li>
                     ))}
+
+                    {currentPage < pageNumbers.length && (
+                        <li className="page-item">
+                        <button onClick={() => onPageChange(currentPage + 1)} className={sup ? 'page-link-sup':'page-link'}>
+                            Siguiente
+                        </button>
+                        </li>
+                    )}
+
                 </ul>
             </nav>
         </div>

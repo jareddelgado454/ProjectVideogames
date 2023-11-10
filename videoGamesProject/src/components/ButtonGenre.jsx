@@ -13,7 +13,9 @@ const ButtonGenre = ({id,name,setGenresSelected,genresSelected}) => {
     }
     const buttonClass = selected ? 'buttonGenreSelected' : 'buttonGenre';
     return (
-        <label className={buttonClass} onClick={handleClick}>{name}</label>
+        <div className='divButtonGenre'>
+            <label className={buttonClass} onClick={handleClick}>{name}</label>
+        </div>
     )
 }
 

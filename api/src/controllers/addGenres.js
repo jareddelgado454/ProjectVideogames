@@ -12,6 +12,7 @@ const addGenres = async(req, res) => {
         console.log(genders);
         for(const genreInfo of genders){
             await Genre.create({
+                id : genreInfo.id,
                 name : genreInfo.name
             });
         }
