@@ -24,37 +24,48 @@ html{
 /*LANDING PAGE*/
 .divLandingPage{
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background:  linear-gradient(to bottom right, rgba(2, 13, 13, 0.1), rgba(40, 144, 144, 0.2));
 }
 
 .videoLandingPage{
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   position: relative;
+}
+
+.divContentLanding{
+  display: flex;
+  flex-direction: column;
 }
 
 
 .overlayContent {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   text-align: center;
+  justify-content: center;
   color: white     
 }
 
-.overlayContent button{
-  margin-bottom: 100px;
+.overlayContent p{
+  font-family: 'Inter', sans-serif;
+  font-family: 'Kenia', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Russo One', sans-serif;
+  width: 400px;
+  font-size: 20px;
+  color: #95f9f29d;
 }
+
 
 .neonText{
   margin-top: 50px;
@@ -62,13 +73,13 @@ html{
   font-family: 'Kenia', sans-serif;
   font-family: 'Montserrat', sans-serif;
   font-family: 'Russo One', sans-serif;
-  font-size: 120px;
+  font-size: 100px;
   cursor:pointer;
   transition: .3s linear;
   color: transparent;
-  -webkit-text-stroke: 2px rgb(246, 246, 68);
+  -webkit-text-stroke: 2px rgb(86, 224, 243);
   background-image: linear-gradient(to left,
-  rgb(29, 29, 7),rgb(246, 246, 68),rgb(161, 161, 44),black,rgb(35,31,31));
+  rgba(29, 29, 7,0.8),rgba(59, 221, 242,0.8),rgba(59, 221, 242,0.8),rgba(10, 10, 10,0.8),rgba(35,31,31,0.8));
   background-size: 200%;
   -webkit-background-clip: text;
   animation: move 10s linear infinite;
@@ -81,49 +92,39 @@ html{
 }
 
 .neonText:hover{
-  text-shadow: 0 0 10px rgba(238, 233, 62, 0.5),
+  text-shadow: 0 0 10px rgba(59, 221, 242, 0.5),
                 0 0 20px rgba(242, 111, 102, 0.35),
                 0 0 40px rgba(215, 166, 246, 0.35),
-                0 0 80px rgba(246, 242, 123, 0.5),
-                0 0 160px rgba(246, 241, 117, 0.5);
+                0 0 80px rgba(59, 221, 242, 0.5),
+                0 0 160px rgba(59, 221, 242, 0.5);
 }
 
 .startButton{
-  padding: 20px 60px;
+  padding: 20px 50px;
   font-size: 35px;
   cursor: pointer;
   border-radius: 16px;
-  border: none;
+  border: 3px solid rgb(86, 224, 243);
   outline: none;
-  background-color: rgb(25, 21, 29,0.9);
-  color: rgb(241, 237, 167);
+  background-color: rgba(30, 29, 29,0.5);
+  color: rgb(86, 224, 243);
+  transition: 0.1s linear;
   position: relative;
   font-family: 'Inter', sans-serif;
   font-family: 'Kenia', sans-serif;
   font-family: 'Montserrat', sans-serif;
   font-family: 'Russo One', sans-serif;
-}
-
-.startButton::after{
-  content: '';
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    circle farthest-corner at 10% 20%,
-    rgb(251, 107, 244) 18%,
-    rgb(247, 251, 56) 100%
-  );
-  filter: blur(15px);
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: -1;
-  animation: moveButton 2s infinite;
-  background-size: 40% 200%;
+  margin-top: 40px;
 }
 
 .startButton:hover {
-  background-color: rgb(25, 21, 29);
+  background-color: rgb(18, 18, 18);
+  color: rgb(86, 224, 243);
+  box-shadow: 0 0 5px rgba(59, 221, 242, 0.5),
+                0 0 10px rgba(242, 111, 102, 0.35),
+                0 0 20px rgba(215, 166, 246, 0.35),
+                0 0 40px rgba(59, 221, 242, 0.5),
+                0 0 80px rgba(59, 221, 242, 0.5);
 }
 
 @keyframes moveButton {
@@ -136,6 +137,12 @@ html{
 }
 
 /* Home*/
+
+.divHome{
+  min-height: 100vh;
+  background-color: rgb(19, 18, 20);
+}
+
 .divHomeContent{
   display: flex;
   flex-direction: column;
@@ -186,11 +193,21 @@ html{
   font-family: 'Kenia', sans-serif;
   font-family: 'Montserrat', sans-serif;
   font-family: 'Russo One', sans-serif;
-  color: rgb(248, 240, 100);
+  color: rgb(158, 251, 245);
 }
 
 .buttonNav:hover{
-  color: rgb(199, 193, 79);
+  color: rgb(75, 194, 186);
+}
+
+.neonTextNavBar{
+  font-size: 40px!important;
+  -webkit-text-stroke: 1px rgb(139, 232, 244)!important;
+  background-image: linear-gradient(to left,
+  rgba(29, 29, 7,0.8),rgba(151, 230, 241, 0.8),rgba(130, 232, 245, 0.8),rgba(10, 10, 10,0.8),rgba(35,31,31,0.8))!important;
+  background-size: 200%;
+  margin: 0!important;
+  margin-left: 25px!important;
 }
 
 .divCreateVideogameButton{
@@ -199,13 +216,13 @@ html{
 }
 
 .formInstructionMain h3{
-  color: rgb(224, 218, 90);
+  color: rgb(107, 246, 239);
   font-size: 35px;
 }
 
 .formInstructionMain p{
   margin-bottom: 30px;
-  color: rgb(245, 183, 236);
+  color: rgb(249, 172, 237);
   font-size: 15px;
 }
 
@@ -220,10 +237,10 @@ html{
   cursor: pointer;
   border-radius: 16px;
   margin-left: 20px;
-  border: 2px solid rgb(248, 240, 100);
+  border: 2px solid rgb(158, 251, 245);
   outline: none;
   background-color: transparent;
-  color: rgb(241, 237, 167);
+  color: rgb(158, 251, 245);
   font-family: 'Inter', sans-serif;
   font-family: 'Kenia', sans-serif;
   font-family: 'Montserrat', sans-serif;
@@ -231,13 +248,47 @@ html{
 }
 
 .createVideogameButton:hover{
-  background: rgb(248, 240, 100);
+  background: rgb(108, 247, 238);
   color: black;
 }
 
+.menuIcon {
+  cursor: pointer;
+  font-size: 30px; 
+  margin-right: 10px; 
+  color: rgb(108, 247, 238);
+  padding-right: 10px;
+}
+
+.menuDropdown {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 40px; 
+  right: 0; 
+  background-color: rgb(19, 18, 20); 
+  color: rgb(108, 247, 238);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  border-radius: 4px; 
+  z-index: 1; 
+}
+
+.menuDropdown a {
+  padding: 10px;
+  text-decoration: none;
+  color: rgb(108, 247, 238);
+  transition: background-color 0.3s ease; 
+  font-size: 18px;
+}
+
+.menuDropdown a:hover {
+  background-color: rgb(30, 28, 31);
+}
+
+
 /*Content*/
 .divTextMain{
-  margin: 30px;
+  margin: 35px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -246,14 +297,14 @@ html{
 
 .divTextMain h2{
   color: transparent;
-  -webkit-text-stroke: 2px rgb(240, 129, 235);
-  text-shadow: 1px 1px 3px rgb(248, 240, 100,0.2);
+  -webkit-text-stroke: 2px rgb(245, 114, 188);
+  text-shadow: 1px 1px 5px rgba(247, 239, 87, 0.1);
 }
 
 .divTextMain p {
   width: 320px;
   font-size: 17px;
-  color: rgba(240, 129, 234, 0.724);
+  color: rgba(245, 127, 194, 0.7);
 }
 
 /*Filters*/
@@ -266,7 +317,7 @@ html{
   margin-top: 15px;
   margin-bottom: 50px;
   color:black;
-  background-color: rgb(245, 245, 115);
+  background-color: rgb(158, 251, 245);
 }
 
 .filterSelectContent{
@@ -330,7 +381,7 @@ html{
 .inputSearchVideogame:valid + .labelSearchInput {
   top: -14px;
   left: 4px;
-  background-color: rgb(245, 245, 115);
+  background-color: rgb(158, 251, 245);
   padding: 0 6px;
   color: rgb(8, 8, 8);
 }
@@ -346,7 +397,7 @@ html{
   cursor: pointer;
   overflow: hidden;
   transition: all 0.2s;
-  color: rgb(245, 245, 115);
+  color: rgb(158, 251, 245);
   background: rgb(32, 32, 21);
   border: 3px solid rgb(32, 32, 21);
   outline: none;
@@ -354,7 +405,7 @@ html{
 }
 
 .searchVideogameButton:hover{
-  background-color: rgb(245, 245, 115);
+  background-color: rgb(158, 251, 245);
   color: rgb(19, 18, 20);
 }
 
@@ -384,7 +435,7 @@ html{
   font-family: 'Montserrat', sans-serif;
   font-family: 'Russo One', sans-serif;
   background-color: rgb(19, 18, 20);
-  color: rgb(231, 231, 106);
+  color: rgb(158, 251, 245);
   font-size: 17px;
   width: 70%;
 }
@@ -401,12 +452,12 @@ html{
   border-radius: 10px;
   border: 3px solid rgb(19, 18, 20);
   background-color: rgb(19, 18, 20);
-  color: rgb(245, 245, 115);
+  color: rgb(158, 251, 245);
   cursor: pointer;
 }
 
 .cleanFiltersButton:hover{
-  background-color: rgb(245, 245, 115);
+  background-color: rgb(158, 251, 245);
   color: rgb(19, 18, 20);
 }
 
@@ -418,6 +469,11 @@ html{
   width: 100%; 
   justify-content: center;
   
+}
+
+.messageWithoutVideogames{
+  color: rgba(245, 127, 194);
+  font-size: 20px;
 }
 
 .divCardsContainer{
@@ -475,9 +531,9 @@ html{
   height: 40px;
   background: linear-gradient(
     45deg,
-    #d554f9 0%,
-    rgb(243, 255, 71) 51%,
-    #d554f9 100%
+    rgb(241, 107, 203) 0%,
+    rgb(108, 247, 238) 51%,
+    rgb(241, 107, 203) 100%
   );
   transform: rotate(-45deg) translateY(-20px);
   display: flex;
@@ -499,9 +555,9 @@ html{
   box-shadow: 140px -140px #a1268e;
   background: linear-gradient(
     45deg,
-    #d747ff 0%,
-    #edff47 51%,
-    #d747ff 100%
+    rgb(241, 107, 203) 0%,
+    #6cf7ee 51%,
+    rgb(241, 107, 203) 100%
   );
 }
 
@@ -516,11 +572,11 @@ html{
 
 .titleVideogameCard{
   text-decoration: none;
-  color: rgb(226, 107, 241);
+  color: rgb(241, 107, 203);
 }
 
 .genresCard{
-  width: 250px;
+  max-width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -528,7 +584,7 @@ html{
 
 .genreLabel{
   padding: 8px;
-  background-color: rgb(151, 52, 164);
+  background-color: rgb(173, 47, 150);
   color: white;
   margin: 5px;
   border-radius: 5px;
@@ -549,7 +605,9 @@ html{
 }
 
 .divContentCardBottom{
+  padding: 2px;
   display: flex;
+  max-width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -559,21 +617,27 @@ html{
 /*Loading*/
 .divLoading{
   position: fixed;
-  color: white;
+  color: rgb(161, 241, 232);
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Color de fondo con opacidad */
-  z-index: 999; /* Asegura que esté por encima de otros elementos */
+  font-size: 30px;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 999; 
   display: flex;
   justify-content: center;
   align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-family: 'Kenia', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Russo One', sans-serif;
 }
 
 /*CreateVideogame*/
 .divCreateVideogame{
-  width: 100%;
+  max-width: 100%;
   background-color: rgb(19, 18, 20);
   display: flex;
   align-items: center;
@@ -586,7 +650,7 @@ html{
 
 
 .containerInput{
-  width: 100%;
+  max-width: 100%;
   position: relative;
   margin-bottom: 30px;
 }
@@ -596,10 +660,10 @@ html{
   padding: 15px 8px;
   border: none;
   outline: none;
-  border: 2px solid rgb(245, 245, 115);
+  border: 2px solid rgb(107, 246, 239);
   background-color: transparent;
   border-radius: 8px;
-  color: rgb(245, 245, 115);
+  color: rgb(107, 246, 239);
   font-size: 24px;
   display: inline-block;
   font-family: 'Inter', sans-serif;
@@ -637,7 +701,7 @@ html{
   top: 1px;
   padding: 18px 8px 0;
   font-size: 20px;
-  color: rgba(245, 245, 115, 0.6);
+  color: rgba(107, 246, 239,0.6);
   transition: all 0.1s linear;
 }
 
@@ -663,7 +727,7 @@ html{
 }
 
 .formCreateVideogame{
-  width: 100%;
+  max-width: 100%;
 }
 
 .inputCreateVideogame:focus + .labelCreateVideogame,
@@ -672,7 +736,7 @@ html{
   left: 30px;
   background-color: rgb(19, 18, 20);
   padding: 0 6px;
-  color: rgb(245, 245, 115);
+  color: rgb(107, 246, 239);
 }
 
 .inputCreateVideogameError:focus + .labelCreateVideogameError,
@@ -685,7 +749,7 @@ html{
 }
 
 .buttonsGenreContainer{
-  width: 100%;
+  max-width: 100%;
   background-color: rgb(14, 13, 15);
   border-radius: 20px;
   display: flex;
@@ -733,26 +797,27 @@ html{
   font-family: 'Russo One', sans-serif;
   border-radius: 20px;
   background-color: transparent;
-  border: 3px solid rgb(215, 217, 91);
+  border: 3px solid rgb(107, 246, 239);
   outline: none;
-  color: rgb(215, 217, 91);
+  color: rgb(107, 246, 239);
   cursor: pointer;
 }
 
 .buttonCreateVideogame:hover{
-  background-color: rgb(215, 217, 91);
+  background-color: rgb(107, 246, 239);
   color: black;
 }
 
 .buttonCreateVideogame:disabled{
   cursor: not-allowed;
-  color: rgb(215, 217, 91);
-  border: 3px solid rgb(215, 217, 91);
+  color: rgb(107, 246, 239);
+  border: 3px solid rrgb(107, 246, 239);
   background-color: transparent;
 }
 
 .errorMessage{
   color: rgb(246, 76, 115);
+  font-size: 15px;
 }
 
 .messageHide{
@@ -788,7 +853,10 @@ html{
 .pagination{
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
   list-style-type: none;
+  padding: 0px;
 }
 
 .page-link{
@@ -802,14 +870,14 @@ html{
   font-family: 'Russo One', sans-serif;
   cursor: pointer;
   background-color: transparent;
-  border: 2px solid rgba(222, 86, 224);
-  color: rgba(222, 86, 224);
+  border: 2px solid rgb(224, 86, 192);
+  color: rgb(224, 86, 192);
   outline: none;
   box-shadow: 0 0 10px rgba(222, 86, 224, 0.2);
 }
 
 .page-link:hover{
-  background-color: rgba(222, 86, 224);
+  background-color: rgb(224, 86, 192);
   color: white;
 }
 
@@ -824,24 +892,24 @@ html{
   font-family: 'Russo One', sans-serif;
   cursor: pointer;
   background-color: transparent;
-  border: 2px solid rgb(224, 219, 86);
-  color: rgb(224, 219, 86);
+  border: 2px solid rgb(108, 247, 238);
+  color: rgb(108, 247, 238);
   outline: none;
   box-shadow: 0 0 10px rgba(219, 224, 86, 0.2);
 }
 
 .page-link-sup:hover{
-  background-color: rgb(224, 219, 86);
+  background-color: rgb(108, 247, 238);
   color: black;
 }
 
 .active .page-link{
-  background-color: rgba(222, 86, 224);
+  background-color: rgb(224, 86, 192);
   color: white;
 }
 
 .active .page-link-sup{
-  background-color: rgb(224, 219, 86);
+  background-color: rgb(108, 247, 238);
   color: black;
 }
 
@@ -852,6 +920,7 @@ html{
   padding-top: 40px;
   background-color: rgb(19, 18, 20);
   width: 100%;
+  height: 100vh;
   font-family: 'Inter', sans-serif;
   font-family: 'Kenia', sans-serif;
   font-family: 'Montserrat', sans-serif;
@@ -951,4 +1020,558 @@ html{
   font-size: 17px;
   padding: 10px 0;
   padding-top: 40px;
+}
+
+/*Toasts*/
+.toastError{
+  background-color: rgb(34, 32, 36)!important;
+  color: rgb(250, 103, 122)!important;
+  font-size: 17px!important;
+  border-radius: 9px!important;
+  font-family: 'Inter', sans-serif!important;
+  font-family: 'Kenia', sans-serif!important;
+  font-family: 'Montserrat', sans-serif!important;
+  font-family: 'Russo One', sans-serif!important;
+  box-shadow: 0 0 0 3px rgba(250, 103, 122, 0.2)!important;
+}
+
+.toastSuccess{
+  background-color: rgb(34, 32, 36)!important;
+  color: rgb(137, 250, 103)!important;
+  font-size: 17px!important;
+  border-radius: 9px!important;
+  font-family: 'Inter', sans-serif!important;
+  font-family: 'Kenia', sans-serif!important;
+  font-family: 'Montserrat', sans-serif!important;
+  font-family: 'Russo One', sans-serif!important;
+  box-shadow: 0 0 0 3px rgba(115, 250, 103, 0.2)!important;
+}
+
+
+/*Reviews*/
+.divFormReviewsContent{
+  width: 750px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.divReviews{
+  width: 100%;
+  background-color: rgb(19, 18, 20);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-family: 'Kenia', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Russo One', sans-serif;
+}
+.divFormReviews{
+  width: 100%;
+}
+
+
+.divStarsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.divStar{
+  margin: 4px;
+}
+
+.inputReview{
+  width: 90%;
+  padding: 15px 8px;
+  border: none;
+  outline: none;
+  border: 2px solid rgb(107, 246, 239);
+  background-color: transparent;
+  border-radius: 8px;
+  color: rgb(107, 246, 239);
+  font-size: 17px;
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-family: 'Kenia', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Russo One', sans-serif;
+}
+.inputReviewError{
+  width: 90%;
+  padding: 15px 8px;
+  border: none;
+  outline: none;
+  border: 2px solid rgb(244, 58, 64);
+  background-color: transparent;
+  border-radius: 8px;
+  color: rgb(244, 58, 64);
+  font-size: 17px;
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-family: 'Kenia', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Russo One', sans-serif;
+}
+.labelReview{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  left: 20px;
+  top: -2px;
+  padding: 18px 8px 0;
+  font-size: 20px;
+  color: rgba(107, 246, 239,0.6);
+  transition: all 0.1s linear;
+}
+.labelReviewError{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  left: 20px;
+  top: -2px;
+  padding: 18px 8px 0;
+  font-size: 20px;
+  color: rgb(244, 58, 64);
+  transition: all 0.1s linear;
+}
+
+.inputReview:focus + .labelReview,
+.inputReview:valid + .labelReview {
+  top: -14px;
+  left: 0px;
+  background-color: rgb(19, 18, 20);
+  padding: 0 6px;
+  color: rgb(107, 246, 239);
+}
+
+.inputReviewError:focus + .labelReviewError,
+.inputReviewError:valid + .labelReviewError {
+  top: -14px;
+  left: 0px;
+  background-color: rgb(19, 18, 20);
+  padding: 0 6px;
+  color: rgb(244, 58, 64);
+}
+
+.containerInputAndStars{
+  width: 60%!important;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px!important;
+  align-items: left;
+}
+
+.containerComments{
+  width: 100%!important;
+  display: flex;
+  margin-bottom: 10px!important;
+  flex-direction: column;
+  align-items: left;
+}
+
+.firstContainerReview{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 40px;
+}
+
+
+.labelRatingTag{
+  margin: 0;
+  color: #6cf7ee;
+}
+
+.buttonReview{
+  padding: 15px 25px;
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  font-family: 'Kenia', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Russo One', sans-serif;
+  border-radius: 20px;
+  background-color: transparent;
+  border: 3px solid rgb(107, 246, 239);
+  outline: none;
+  color: rgb(107, 246, 239);
+  cursor: pointer;
+}
+
+.buttonReview:hover{
+  background-color: rgb(107, 246, 239);
+  color: black;
+}
+
+.buttonReview:disabled{
+  cursor: not-allowed;
+  color: rgb(107, 246, 239);
+  border: 3px solid rrgb(107, 246, 239);
+  background-color: transparent;
+}
+.reviewsContainerContent{
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.divReviewContent{
+  max-width: 100%;
+  background-color: rgb(30, 28, 28);
+  margin-bottom: 25px;
+  border-radius: 10px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  padding: 20px;
+}
+
+.divReviewContentFirstLine{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.divReviewContentFirstLineName{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.divReviewContentFirstLineName svg{
+  margin-right: 10px;
+}
+
+.divReviewContentFirstLineName h2{
+  color: rgb(97, 227, 245);
+}
+
+.divReviewContent p{
+  color: white;
+  font-size: 17px;
+}
+
+/*About*/
+.divAbout{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  font-family: 'Kenia', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Russo One', sans-serif;
+  background-color: rgb(19, 18, 20);
+}
+
+.firstContainerAbout{
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 60px;
+  margin-top: 40px;
+}
+
+.firstContainerAboutLeftSide{
+  width: 100%;
+  display: flex;
+  background-color: transparent;
+  color: rgb(247, 220, 238);
+  font-size: 25px;
+}
+.aboutAppLeft{
+  width: 100%;
+  text-align: left;
+}
+.aboutDeveloperRight{
+  width: 100%;
+  text-align: right;
+}
+
+.firstContainerAboutrightSide{
+  max-width: 100%;
+}
+.firstContainerAboutrightSide{
+  padding: 40px;
+  color: #8bf5ee;
+  background-color: rgba(27, 27, 27);
+}
+
+@media screen and (max-width: 1185px) {
+  
+  .divCard{
+    width: 250px;
+    height: 270px;
+  }
+  .imageCard{
+    height: 130px;
+  }
+  .divContentCardBottom h2{
+    font-size: 18px;
+  }
+  .genreLabel{
+    padding: 5px;
+    font-size: 11px;
+  }
+  .divCard>span{
+    width: 80px;
+    height: 80px;
+    font-size: 12px;
+    font-weight: 100;
+  }
+  .divCard>span::before{
+    width: 120%;
+    height: 30px;
+    font-size: 12px;
+    font-weight: 100;
+  }
+  .divCard>span::after{
+    width: 0px;
+    height: 0px;
+    font-size: 12px;
+    font-weight: 100;
+  }
+}
+
+@media screen and (max-width: 930px) {
+  
+  .filterSelectContent{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+  }
+  .leftSideInformation{
+    border-right: none;
+    width: 70%;
+  }
+  .rightSideFilters{
+    width: 70%;
+  }
+  .divSearchBar{
+    margin-bottom: 10px;
+  }
+  .selectFilterByOrigin,
+  .selectFilterByGenre,
+  .selectOrder{
+    background-color: rgba(158, 251, 245);
+    color: black;
+  }
+}
+
+@media screen and (max-width: 954px){
+  .divFormReviewsContent{
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 900px){
+  .firstContainerAbout{
+    max-width: 90%;
+  }
+  .page-link{
+    padding: 7px 9px;
+    font-size: 17px;
+    margin: 4px;
+  }
+  .page-link-sup{
+    padding: 7px 9px;
+    font-size: 17px;
+    margin: 4px;
+  }
+}
+
+@media screen and (max-width: 820px){
+  .instructionsGenres p{
+    font-size: 15px;
+  }
+  .divCreateVideogameContent{
+    max-width: 90%;
+  }
+  .inputCreateVideogame{
+    max-width: 90%;
+    padding: 12px 15px;
+    font-size: 15px;
+  }
+  .inputCreateVideogameError{
+    max-width: 90%;
+    padding: 12px 15px;
+    font-size: 15px;
+  }
+  .labelCreateVideogame{
+    padding: 12px 3px 0;
+    font-size: 15px;
+    left: 15px;
+  }
+  .labelCreateVideogameError{
+    padding: 12px 3px 0;
+    font-size: 15px;
+    left: 15px;
+  }
+}
+
+@media screen and (max-width: 730px){
+
+  .buttonCreateVideogame{
+    padding: 15px 20px;
+    font-size: 15px;
+  }
+  .buttonGenre{
+    font-size: 14px;
+  }
+  .buttonGenreSelected{
+    font-size: 14px;
+  }
+  .aboutAppLeft,.aboutDeveloperRight{
+    text-align: center;
+    font-size: 27px;
+  }
+  .buttonReview{
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+  .labelReview{
+    padding: 14px 2px 0;
+    font-size: 13px;
+  }
+  .labelReviewError{
+    padding: 12px 2px 0;
+    font-size: 13px;
+  }
+  .inputReview{
+    font-size: 13px;
+    padding: 12px 6px;
+  }
+  .inputReviewError{
+    font-size: 14px;
+    padding: 12px 6px;
+  }
+  .errorMessage{
+    font-size: 10px;
+  }
+  .divStar svg{
+    height: 12px;
+  }
+
+  .divReviewContentFirstLineName h2{
+    font-size: 15px;
+  }
+  .divReviewContent p{
+    font-size: 12px;
+  }
+
+  .neonText{
+    font-size: 70px;
+  }
+  .overlayContent p{
+    font-size: 15px;
+  }
+  .startButton{
+    font-size: 25px;
+    padding: 10px 20px;
+  }
+
+  .page-link{
+    padding: 5px 8px;
+    font-size: 14px;
+    margin: 3px;
+  }
+  .page-link-sup{
+    padding: 5px 8px;
+    font-size: 15px;
+    margin: 3px;
+  }
+  .divCard{
+    width: 120px;
+    height: 150px;
+    margin: 15px;
+  }
+  .imageCard{
+    height: 70px;
+  }
+  .divContentCardBottom h2{
+    font-size: 8px;
+  }
+  .genreLabel{
+    padding: 2px;
+    font-size: 5px;
+  }
+  .divCard>span{
+    width: 80px;
+    height: 80px;
+    font-size: 12px;
+    font-weight: 100;
+  }
+  .divCard>span::before{
+    width: 120%;
+    height: 30px;
+    font-size: 12px;
+    font-weight: 100;
+  }
+  .divCard>span::after{
+    width: 0px;
+    height: 0px;
+    font-size: 12px;
+    font-weight: 100;
+  }
+  .divCardsContainer{
+    padding: 0 10px;
+  }
+  .leftSideInformation{
+    width: 90%;
+  }
+  .rightSideFilters{
+    width: 90%;
+  }
+  .inputSearchVideogame{
+    font-size: 18px;
+    padding: 12px 6px;
+  }
+  .labelSearchInput{
+    left: 8px;
+    top: 0px;
+    padding: 15px 8px 0;
+    font-size: 15px;
+  }
+  .searchVideogameButton{
+    padding: 10px;
+    font-size: 15px;
+  }
+  .selectFilterByOrigin,
+  .selectFilterByGenre,
+  .selectOrder{
+    padding: 5px;
+    font-size: 15px;
+  }
+  .cleanFiltersButton{
+    padding: 10px 30px;
+    font-size: 15px;
+  }
+  .rightSideFilters{
+    margin-top: 40px;
+  }
+}
+
+@media screen and (max-width: 650px){
+  .page-link{
+    padding: 4px 5px;
+    font-size: 10px;
+    margin: 2px;
+  }
+  .page-link-sup{
+    padding: 4px 5px;
+    font-size: 10px;
+    margin: 2px;
+  }
+  
 }

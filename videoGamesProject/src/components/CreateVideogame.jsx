@@ -4,8 +4,12 @@ import {useDispatch} from 'react-redux';
 import Loading from './Loading';
 import ButtonGenre from './ButtonGenre';
 import validation from './validation';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CreateVideogame = () => {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const [genres,setGenres] = useState([]);
     const [genresSelected,setGenresSelected] = useState([]);
@@ -32,8 +36,7 @@ const CreateVideogame = () => {
 
     useEffect(()=>{
         if(videoData.name != '' || videoData.description != '' || videoData.platforms !='' || videoData.released != '' || videoData.background_image != '' || videoData.rating != 0){
-           setErrors({...validation(videoData)});
-           
+           setErrors(validation(videoData));
         }
     },[videoData]);
 
@@ -47,6 +50,12 @@ const CreateVideogame = () => {
             const response = await axios.post('http://localhost:3001/videogames',videoData);
             if (response.status === 201) {
                 setMessage('The video game was created successfully');
+                toast.success('The video game was created successfully', {
+                    className:'toastSuccess',
+                    position: toast.POSITION.BOTTOM_RIGHT,
+                    autoClose: 3000,
+                    hideProgressBar: true,
+                });
                 e.target.reset();
                 setVideoData({
                     name: '',
@@ -57,13 +66,27 @@ const CreateVideogame = () => {
                     rating: '',
                     genres: [],
                 });
+                setGenresSelected([]);
+                navigate('/home');
             } else if (response.status === 409) {
                 setMessage('The video game already exists');
+                toast.error('The video game already exists', {
+                    className:'toastError',
+                    position: toast.POSITION.BOTTOM_RIGHT,
+                    autoClose: 3000,
+                    hideProgressBar: true,
+                  });
             } else {
                 setMessage('Unknown error: ' + response.status);
             }
         } catch (error) {
             setMessage('Error when creating the video game');
+            toast.error('Error when creating the video game', {
+                className:'toastError',
+                position: toast.POSITION.BOTTOM_RIGHT,
+                autoClose: 3000,
+                hideProgressBar: true,
+            });
         }
     };
 
@@ -168,14 +191,13 @@ const CreateVideogame = () => {
 
                         <button id='buttonCreateVideogameForm' className='buttonCreateVideogame' 
                             type='submit' 
-                            disabled={((errors.name && videoData.name != '') ||
-                                        (errors.background_image && videoData.background_image!='') ||
-                                        (errors.description && videoData.description!='') ||
-                                        (errors.platforms && videoData.platforms != '') ||
-                                        (errors.released && videoData.released != '') ||
-                                        (errors.rating && videoData.rating != '')  ||
-                                        (genresSelected.length == 0))||
-                                        (Object.values(videoData).some(value => value == ''))
+                            disabled={(errors.name || videoData.name == '') ||
+                                        (errors.background_image || videoData.background_image=='') ||
+                                        (errors.description || videoData.description=='') ||
+                                        (errors.platforms || videoData.platforms == '') ||
+                                        (errors.released || videoData.released == '') ||
+                                        (errors.rating || videoData.rating < 1)  ||
+                                        (genresSelected.length < 1)
                             }
                         >Create Videogame</button>
                         <div className='divMessageResponseCreate'>

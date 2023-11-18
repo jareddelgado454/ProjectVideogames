@@ -1,20 +1,27 @@
-import { GET_VIDEOGAMES, GET_VIDEOGAMES_NOT_FOUND, FILTER_VIDEOGAMES_BY_ORIGIN, FILTER_VIDEOGAMES_BY_GENRE, ORDER_VIDEOGAMES , GET_VIDEOGAME , DELETE_FILTERS, CHARGE_VIDEOGAMES} from './actionType';
+import { GET_VIDEOGAMES, ERROR_VIDEOGAMES, FILTER_VIDEOGAMES_BY_ORIGIN, FILTER_VIDEOGAMES_BY_GENRE, ORDER_VIDEOGAMES , GET_VIDEOGAME , DELETE_FILTERS, CHARGE_VIDEOGAMES, CLEAN_ERRORS} from './actionType';
 import axios from 'axios';
 
 export const getVideogames = ( name ) => {
-    try {
-        const endpoint = `http://localhost:3001/videogames?name=${name}`;
-        return async (dispatch) =>{
+    return async (dispatch) =>{
+        try {
+            const endpoint = `http://localhost:3001/videogames?name=${name}`;
             const { data } = await axios.get(endpoint);
-            return dispatch({
+            dispatch({
                 type: GET_VIDEOGAMES,
                 payload: data
             });
-        }
-    } catch (error) {
-        throw Error(error);
-    }   
-};
+
+            return data;
+        
+        } catch (error) {
+            dispatch({
+                type : ERROR_VIDEOGAMES,
+                payload : error.data ? error.reponse.data : 'Unknown Error'
+            });
+            throw error
+        }   
+    };
+}
 
 export const getVideogame = (id) => {
     try {
@@ -54,4 +61,8 @@ export const chargeVideogames = (data) => ({
     type: CHARGE_VIDEOGAMES,
     payload: data
 });
+
+export const cleanErrors = () => ({
+    type : CLEAN_ERRORS
+})
 

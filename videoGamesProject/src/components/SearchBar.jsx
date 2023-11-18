@@ -1,20 +1,52 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
-import { getVideogames } from '../redux/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { cleanErrors, getVideogames } from '../redux/actions';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const SearchBar = ({loading,setLoading}) => {
+const SearchBar = ({setLoading, setCurrentPage, cardsRef}) => {
     const dispatch = useDispatch();
     const [name,setName] = useState('');
     const handleChange = (event) => {
         setName(event.target.value);
     }
     const handleClick = () => {
-        setLoading(true);
-        dispatch(getVideogames(name)).then(() => {
-          setLoading(false);
-          setName(''); 
-        });
+        cardsRef.current.scrollIntoView({ behavior: 'smooth' });
+        if(name == ''){
+            toast.error('You did not enter any name to search', {
+              className:'toastError',
+              position: toast.POSITION.BOTTOM_RIGHT,
+              autoClose: 3000,
+              hideProgressBar: true,
+            });
+        }else{
+          setLoading(true);
+          dispatch(getVideogames(name)).then((data) => {
+            setLoading(false);
+            setName('');
+            setCurrentPage(1);
+            if (data && data.length === 0) {
+              toast.error('There are not Videogames that match that name', {
+                className:'toastError',
+                position: toast.POSITION.BOTTOM_RIGHT,
+                autoClose: 3000,
+                hideProgressBar: true,
+              });
+            }else{
+              toast.success('Video games were found that match that name', {
+                className:'toastSuccess',
+                position: toast.POSITION.BOTTOM_RIGHT,
+                autoClose: 3000,
+                hideProgressBar: true,
+              });
+            }
+          }).catch((error)=>{
+            setLoading(false);
+            console.error(error);
+          });
+        }
     }
+
   return (
     <div className='divSearchBar'>
         <div className='containerInputSearch'>

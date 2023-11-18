@@ -3,7 +3,7 @@ import React from 'react'
 const Loading = () => {
   return (
     <div className='divLoading'>
-        <h2>Loading...</h2>
+        <h3 className='neonText neonTextNavBar'>Loading ...</h3>
     </div>
   )
 }

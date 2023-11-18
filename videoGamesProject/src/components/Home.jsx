@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useDispatch } from 'react-redux'
 import Cards from './Cards';
 import { chargeVideogames, deleteFilters, filterVideogamesByGenre, filterVideogamesByOrigin, orderVideogames } from '../redux/actions';
@@ -25,10 +25,12 @@ const Home = () => {
   useEffect(()=>{
     const fetchData = async () => {
       try {
-        const {data} = await axios.get('http://localhost:3001/videogames');
-        dispatch(chargeVideogames(data));
-        const response = await axios.get('http://localhost:3001/getgenres');
-        setGenres(response.data);
+        const response = await axios.get('http://localhost:3001/chargeVideogames');
+        if(response.data){
+            dispatch(chargeVideogames(response.data));
+        }
+        const {data} = await axios.get('http://localhost:3001/getgenres');
+        setGenres(data);
         setCharging(false);
       } catch (error) {
         throw(error.message);
@@ -36,30 +38,40 @@ const Home = () => {
     }
     fetchData();
   },[]);
+  const cardsRef = useRef(null);
 
   const handlePageChange = (pageNumber) => {
+    cardsRef.current.scrollIntoView({ behavior: 'smooth' });
     setCurrentPage(pageNumber);
   };  
 
   const handleOrder = (event) => {
+    cardsRef.current.scrollIntoView({ behavior: 'smooth' });
     setSelectedOrder(event.target.value);
+    setCurrentPage(1);
     dispatch(orderVideogames(event.target.value));
   }
   
   const handleFilterGenre = (event) => {
+    cardsRef.current.scrollIntoView({ behavior: 'smooth' });
     setSelectedGenre(event.target.value);
+    setCurrentPage(1);
     dispatch(filterVideogamesByGenre(event.target.value));
   }
 
   const handleClean = () => {
+    cardsRef.current.scrollIntoView({ behavior: 'smooth' });
     setSelectedOrigin(initialOrigin);
     setSelectedGenre(initialGenre);
     setSelectedOrder(initialOrder);
+    setCurrentPage(1);
     dispatch(deleteFilters());
   }
   
   const handleFilterOrigin = (event) => {
+    cardsRef.current.scrollIntoView({ behavior: 'smooth' });
     setSelectedOrigin(event.target.value);
+    setCurrentPage(1);
     dispatch(filterVideogamesByOrigin(event.target.value));
   }
   return (
@@ -79,12 +91,12 @@ const Home = () => {
                     <div className="filterSelectContent">
                         <div className='leftSideInformation'>
                             <div className='leftSideInformationContent'>
-                              <SearchBar loading={loading} setLoading={setLoading} />
+                              <SearchBar loading={loading} setLoading={setLoading} setCurrentPage={setCurrentPage} cardsRef={cardsRef}/>
                               
                               <div className='titleSearchGroupContent'>
                                 <div className='titleSearchGroupContentText'>
                                   <h3>Search a videogame in the List</h3>
-                                  <p>Filter by name, origin and genre, and sort the list of video games</p>
+                                  <p>Enter a name, or part of a name and we will find the matches</p>
                                 </div>
                               </div>
                             </div>
@@ -101,7 +113,7 @@ const Home = () => {
                             <div className='divFilterByOrigin'>
                                 <h3>Filter by Origin:</h3>
                                 <select className='selectFilterByOrigin' onChange={handleFilterOrigin}>
-                                    <option value={selectedOrigin}>All Origin</option>
+                                    <option value='allOrigin'>All Origin</option>
                                     <option value='created'>Created</option>
                                     <option value='imported'>Imported</option>
                                 </select>
@@ -110,9 +122,9 @@ const Home = () => {
                             <div className='divFilterByGenre'>
                                   <h3>Filter by Genre:</h3>
                                   <select className='selectFilterByGenre' onChange={handleFilterGenre}>
-                                      <option value={selectedGenre}>All Genres</option>
+                                      <option value='allGenres'>All Genres</option>
                                       {
-                                          genres.map((genre) =>{
+                                          genres?.map((genre) =>{
                                               return <option key={genre.id} value={genre.id}>{genre.name}</option>
                                           })
                                       }
@@ -122,7 +134,7 @@ const Home = () => {
                             <div className='divOrder'>
                                 <h3>Order Videogames:</h3>
                                 <select className='selectOrder' onChange={handleOrder}>
-                                  <option value={selectedOrder}>No order</option>
+                                  <option value='NoOrder'>No order</option>
                                   <option value="AscendingName">Ascending Name</option>
                                   <option value="DescendingName">Descending Name</option>
                                   <option value="AscendingRating">Ascending Rating</option>
@@ -135,7 +147,7 @@ const Home = () => {
                     </div>
                     <button className='cleanFiltersButton' onClick={handleClean}>Clean Filters</button>             
                   </div>
-                  <Cards currentPage={currentPage} onPageChange={handlePageChange}/>
+                  <Cards currentPage={currentPage} onPageChange={handlePageChange} cardsRef = {cardsRef} />
                 </div>
                 
               </>

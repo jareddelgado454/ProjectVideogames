@@ -1,4 +1,4 @@
-import { GET_VIDEOGAMES, FILTER_VIDEOGAMES_BY_GENRE, FILTER_VIDEOGAMES_BY_ORIGIN, ORDER_VIDEOGAMES , GET_VIDEOGAME, DELETE_FILTERS, CHARGE_VIDEOGAMES } from './actionType';
+import { GET_VIDEOGAMES, ERROR_VIDEOGAMES, FILTER_VIDEOGAMES_BY_GENRE, FILTER_VIDEOGAMES_BY_ORIGIN, ORDER_VIDEOGAMES , GET_VIDEOGAME, DELETE_FILTERS, CHARGE_VIDEOGAMES, CLEAN_ERRORS } from './actionType';
 
 const initialState = {
     allVideogames : [],
@@ -13,6 +13,20 @@ const reducer = (state = initialState, action) => {
                 allVideogames: action.payload,
                 filteredVideogames: action.payload
             }
+
+        case ERROR_VIDEOGAMES:
+            return {
+                ...state,
+                errors : [...state.errors, action.payload]
+            }
+        
+
+        case CLEAN_ERRORS:
+            return {
+                ...state,
+                errors : ['']
+            }
+        
         case GET_VIDEOGAMES:
             return {
                 ...state,

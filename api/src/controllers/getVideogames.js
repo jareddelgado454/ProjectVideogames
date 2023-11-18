@@ -7,6 +7,9 @@ const URL = `https://api.rawg.io/api/games?key=${API_KEY}`;
 const getVideogames = async (req,res) => {
 
     const {name} = req.query;
+    if (!name) {
+        return res.status(400).json({ error: 'Missing parameter: name', code: 'BAD_REQUEST' });
+    }
     try {
         const [mappedVideoGames,addedVideogames] = await Promise.all([
             getGames( URL),
@@ -14,22 +17,20 @@ const getVideogames = async (req,res) => {
         ]);
 
         const allVideoGames = [...addedVideogames,...mappedVideoGames];
-        if(name){
-            const filteredVideoGames = allVideoGames.filter((videogame) => {
-                return videogame.name.toLowerCase().includes(name.toLowerCase());
-            });
+        
+        const filteredVideoGames = allVideoGames.filter((videogame) => {
+            return videogame.name.toLowerCase().includes(name.toLowerCase());
+        });
 
-            if(filteredVideoGames.length == 0){
-                return res.status(404).send('No videogames with that name were found');
-            }
-
-            return res.status(200).json(filteredVideoGames.slice(0,15));
-        }else{    
-            return res.status(200).json(allVideoGames);
+        if(filteredVideoGames.length == 0){
+            return res.status(200).json([]);
         }
+
+        return res.status(200).json(filteredVideoGames.slice(0,15));
+        
         
     } catch (error) {
-        return res.status(404).send(error.message);
+        return res.status(500).json({ error: 'Internal Server Error', code: 'SERVER_ERROR' });
     }
 }
 module.exports = {

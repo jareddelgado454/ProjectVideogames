@@ -1,13 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const ButtonGenre = ({id,name,setGenresSelected,genresSelected}) => {
-    const [selected, useSelected] = useState(false);
+    useEffect(()=>{
+        if(genresSelected.length < 1 ){
+            setSelected(false);
+        }
+    },[genresSelected]);
+    const [selected, setSelected] = useState(false);
     const handleClick = () => {
         if(!selected){
-            useSelected(!selected);
+            setSelected(!selected);
             setGenresSelected([...genresSelected,id]);
         }else{
-            useSelected(!selected);
+            setSelected(!selected);
             setGenresSelected(genresSelected.filter((genre) => genre != id));
         }
     }
