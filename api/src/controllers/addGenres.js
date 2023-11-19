@@ -9,7 +9,6 @@ const addGenres = async(req, res) => {
     try {
         const { data } = await axios.get(`https://api.rawg.io/api/genres?key=${API_KEY}`);
         genders = data.results;
-        console.log(genders);
         for(const genreInfo of genders){
             await Genre.create({
                 id : genreInfo.id,
