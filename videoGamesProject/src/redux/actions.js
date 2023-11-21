@@ -1,10 +1,11 @@
 import { GET_VIDEOGAMES, ERROR_VIDEOGAMES, FILTER_VIDEOGAMES_BY_ORIGIN, FILTER_VIDEOGAMES_BY_GENRE, ORDER_VIDEOGAMES , GET_VIDEOGAME , DELETE_FILTERS, CHARGE_VIDEOGAMES, CLEAN_ERRORS} from './actionType';
 import axios from 'axios';
+import url from '../../rutaConnection';
 
 export const getVideogames = ( name ) => {
     return async (dispatch) =>{
         try {
-            const endpoint = `http://localhost:3001/videogames?name=${name}`;
+            const endpoint = `${url}/videogames?name=${name}`;
             const { data } = await axios.get(endpoint);
             dispatch({
                 type: GET_VIDEOGAMES,
@@ -25,7 +26,7 @@ export const getVideogames = ( name ) => {
 
 export const getVideogame = (id) => {
     try {
-        const endpoint = `http://localhost:3001/videogames/${id}`;
+        const endpoint = `${url}/videogames/${id}`;
         return async (dispatch) => {
             const { data } = await axios.get(endpoint);
             return dispatch({

@@ -637,6 +637,7 @@ html{
 
 /*CreateVideogame*/
 .divCreateVideogame{
+  min-height: 100vh;
   max-width: 100%;
   background-color: rgb(19, 18, 20);
   display: flex;
@@ -1058,6 +1059,7 @@ html{
 }
 
 .divReviews{
+  min-height: 100vh;
   width: 100%;
   background-color: rgb(19, 18, 20);
   display: flex;

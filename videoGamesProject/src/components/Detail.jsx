@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import Loading from './Loading';
+import url from '../../rutaConnection';
 
 const Detail = () => {
     const [videogame,setVideogame] = useState({});
@@ -11,7 +12,7 @@ const Detail = () => {
         const fetchData = async()=>{
             setLoading(true);
             try {
-                const {data} = await axios.get(`http://localhost:3001/videogames/${id}`);
+                const {data} = await axios.get(`${url}/videogames/${id}`);
                 if(data.name){
                     setVideogame(data);
                 }

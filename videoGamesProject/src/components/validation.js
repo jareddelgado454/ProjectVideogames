@@ -10,8 +10,8 @@ const validation = (videoData) => {
     if(!patternURL.test(videoData.background_image)){
         errors.background_image = 'The URL is invalid';
     }
-    if(videoData.description.length > 200){
-        errors.description = 'Description cannot be more than 200 characters';
+    if(videoData.description.length > 500){
+        errors.description = 'Description cannot be more than 400 characters';
     }
     if(videoData.platforms.length > 20){
         errors.platforms = 'Platform cannot be more than 20 characters';

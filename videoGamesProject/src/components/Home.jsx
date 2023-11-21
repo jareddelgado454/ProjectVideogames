@@ -6,6 +6,7 @@ import axios from 'axios';
 import NavBar from './NavBar';
 import Loading from './Loading';
 import SearchBar from './SearchBar';
+import url from '../../rutaConnection';
 
 const Home = () => {
   const [charging,setCharging] = useState(true);
@@ -25,11 +26,11 @@ const Home = () => {
   useEffect(()=>{
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/chargeVideogames');
+        const response = await axios.get(`${url}/chargeVideogames`);
         if(response.data){
             dispatch(chargeVideogames(response.data));
         }
-        const {data} = await axios.get('http://localhost:3001/getgenres');
+        const {data} = await axios.get(`${url}/getgenres`);
         setGenres(data);
         setCharging(false);
       } catch (error) {

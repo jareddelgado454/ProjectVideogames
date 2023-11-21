@@ -7,6 +7,7 @@ import validation from './validation';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
+import url from '../../rutaConnection';
 
 const CreateVideogame = () => {
     const navigate = useNavigate();
@@ -27,7 +28,7 @@ const CreateVideogame = () => {
     });
     useEffect(()=>{
         const fetchGenres = async() => {
-            const {data} = await axios.get('http://localhost:3001/getgenres');
+            const {data} = await axios.get(`${url}/getgenres`);
             setGenres(data);
             setLoading(false);
         };
@@ -47,7 +48,7 @@ const CreateVideogame = () => {
     const handleSubmit = async(e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3001/videogames',videoData);
+            const response = await axios.post(`${url}/videogames`,videoData);
             if (response.status === 201) {
                 setMessage('The video game was created successfully');
                 toast.success('The video game was created successfully', {

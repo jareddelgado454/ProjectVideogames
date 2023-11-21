@@ -6,6 +6,7 @@ import Star from './Star';
 import { toast } from 'react-toastify';
 import validationReviews from './validationReviews';
 import 'react-toastify/dist/ReactToastify.css';
+import url from '../../rutaConnection'
 
 const Reviews = () => {
     const [loading,setLoading] = useState(false);
@@ -19,7 +20,7 @@ const Reviews = () => {
     const fetchReviews = async () => {
         setLoading(true);
         try {
-            const {data} = await axios.get('http://localhost:3001/reviews');
+            const {data} = await axios.get(`${url}/reviews`);
             if (data.length != 0 ) {
                 const limitedReviews = data.slice(0,100);
                 setReviews(limitedReviews);
@@ -46,8 +47,7 @@ const Reviews = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3001/reviews', {...reviewData, rating:ratingSelected});
-            console.log(response.status);
+            const response = await axios.post(`${url}/reviews`, {...reviewData, rating:ratingSelected});
             if(response?.status == 200){
                 event.target.reset();
                 setRatingSelected(0);
