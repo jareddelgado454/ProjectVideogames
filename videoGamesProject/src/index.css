@@ -24,19 +24,14 @@ html{
 /*LANDING PAGE*/
 .divLandingPage{
   width: 100%;
-  min-height: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background:  linear-gradient(to bottom right, rgba(2, 13, 13, 0.1), rgba(40, 144, 144, 0.2));
+  overflow: hidden;
 }
 
-.videoLandingPage{
-  width: 100%;
-  min-height: 100%;
-  position: relative;
-}
 
 .divContentLanding{
   display: flex;
@@ -45,7 +40,6 @@ html{
 
 
 .overlayContent {
-  position: absolute;
   width: 100%;
   height: 100%;
   display: flex;
@@ -53,7 +47,8 @@ html{
   align-items: center;
   text-align: center;
   justify-content: center;
-  color: white     
+  color: white;
+  background:  linear-gradient(to bottom right, rgba(2, 13, 13, 0.1), rgba(40, 144, 144, 0.2));  
 }
 
 .overlayContent p{
@@ -68,7 +63,6 @@ html{
 
 
 .neonText{
-  margin-top: 50px;
   font-family: 'Inter', sans-serif;
   font-family: 'Kenia', sans-serif;
   font-family: 'Montserrat', sans-serif;
@@ -109,7 +103,6 @@ html{
   background-color: rgba(30, 29, 29,0.5);
   color: rgb(86, 224, 243);
   transition: 0.1s linear;
-  position: relative;
   font-family: 'Inter', sans-serif;
   font-family: 'Kenia', sans-serif;
   font-family: 'Montserrat', sans-serif;
@@ -200,7 +193,12 @@ html{
   color: rgb(75, 194, 186);
 }
 
+.linkNavBarNeon{
+  text-decoration: none;
+}
+
 .neonTextNavBar{
+  text-decoration: none!important;
   font-size: 40px!important;
   -webkit-text-stroke: 1px rgb(139, 232, 244)!important;
   background-image: linear-gradient(to left,
@@ -568,6 +566,7 @@ html{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
 }
 
 .titleVideogameCard{
@@ -921,6 +920,7 @@ html{
   padding-top: 40px;
   background-color: rgb(19, 18, 20);
   width: 100%;
+  min-height: 100vh;
   font-family: 'Inter', sans-serif;
   font-family: 'Kenia', sans-serif;
   font-family: 'Montserrat', sans-serif;
@@ -1424,14 +1424,28 @@ html{
     font-size: 15px;
   }
   .labelCreateVideogame{
-    padding: 12px 3px 0;
+    padding: 11px 3px 0;
     font-size: 15px;
-    left: 15px;
+    left: 40px;
   }
   .labelCreateVideogameError{
-    padding: 12px 3px 0;
+    padding: 11px 3px 0;
     font-size: 15px;
-    left: 15px;
+    left: 40px;
+  }
+  
+}
+
+@media screen and (max-width:775px) {
+  .labelCreateVideogame{
+    padding: 11px 3px 0;
+    font-size: 15px;
+    left: 30px;
+  }
+  .labelCreateVideogameError{
+    padding: 11px 3px 0;
+    font-size: 15px;
+    left: 30px;
   }
 }
 
@@ -1577,6 +1591,19 @@ html{
   }
 }
 
+@media screen and (max-width:665px){
+  .labelCreateVideogame{
+    padding: 11px 3px 0;
+    font-size: 15px;
+    left: 20px;
+  }
+  .labelCreateVideogameError{
+    padding: 11px 3px 0;
+    font-size: 15px;
+    left: 20px;
+  }
+}
+
 @media screen and (max-width: 650px){
   .page-link{
     padding: 4px 5px;
@@ -1588,5 +1615,37 @@ html{
     font-size: 10px;
     margin: 2px;
   }
+  .overlayContent p{
+    width: 300px;
+  }
+  .footerApp{
+    font-size: 12px;
+  }
   
+}
+
+@media (max-height: 665px) {
+  .neonText{
+    font-size: 70px;
+  }
+  .overlayContent p{
+    font-size: 15px;
+  }
+  .startButton{
+    font-size: 25px;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-height: 468px) {
+  .neonText{
+    font-size: 50px;
+  }
+  .overlayContent p{
+    font-size: 12px;
+  }
+  .startButton{
+    font-size: 20px;
+    padding: 8px 15px;
+  }
 }

@@ -37,7 +37,9 @@ const NavBar = () => {
   return (
     <div className='divNavBar'>
       <div>
-        <h3 className='neonText neonTextNavBar'>J'games</h3>
+        <Link to='/home' className='linkNavBarNeon'>
+          <h3 className='neonText neonTextNavBar'>J'games</h3>
+        </Link>
       </div>
       {windowWidth <= 730 ? (
         <div className='menuIcon' onClick={toggleMenu} ref={menuRef}>

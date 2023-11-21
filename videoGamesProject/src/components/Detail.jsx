@@ -20,6 +20,7 @@ const Detail = () => {
                 window.alert('No hay personajes con ese ID');
             } finally{
                 setLoading(false);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         };
         fetchData();
