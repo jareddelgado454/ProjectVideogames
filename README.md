@@ -2,38 +2,37 @@
 
 [![J`games Logo](https://t3.ftcdn.net/jpg/01/71/29/48/360_F_171294824_FDLwEWTzlfVr8iE0qojO0mmai44fdbIj.jpg)](https://video-games-project-b881q6e2r-jared-delgados-projects.vercel.app)
 
-J`games es un proyecto que te permite explorar y gestionar información sobre videojuegos. Desde buscar y visualizar información detallada hasta crear y almacenar nuevos videojuegos en una base de datos. Además, podrás dejar reseñas sobre la página, filtrar y ordenar los videojuegos según tus preferencias.
+J`games is a project that allows you to explore and manage information about video games. From searching and viewing detailed information to creating and storing new video games in a database. Additionally, you can leave reviews on the page, filter, and sort video games according to your preferences.
 
-## Enlace del Proyecto
+## Project Link
 
-Visita el proyecto en vivo: [J`games](https://video-games-project-b881q6e2r-jared-delgados-projects.vercel.app)
+Visit the live project: [J`games](https://video-games-project-b881q6e2r-jared-delgados-projects.vercel.app)
 
-## Capturas de Pantalla
+## Screenshots
 
-_Inserta capturas de pantalla de tu aplicación aquí._
+_Insert screenshots of your application here._
 
-## Características Principales
+## Key Features
 
-- **Exploración:** Busca y visualiza información detallada sobre videojuegos.
-- **Creación:** Crea y almacena nuevos videojuegos en una base de datos.
-- **Reseñas:** Deja tus reseñas sobre la página y comparte tus opiniones.
-- **Filtrado y Ordenamiento:** Filtra y ordena los videojuegos según tus preferencias.
+- **Exploration:** Search and view detailed information about video games.
+- **Creation:** Create and store new video games in a database.
+- **Reviews:** Leave your reviews on the page and share your opinions.
+- **Filtering and Sorting:** Filter and sort video games according to your preferences.
 
-## Tecnologías Utilizadas
+## Technologies Used
 
 - **Frontend:** React, Redux.
 - **Backend:** Node.js, Express.
-- **Base de Datos:** PostgreSQL.
-- **Despliegue:** Vercel (Frontend), Vercel (Backend).
+- **Database:** PostgreSQL.
+- **Deployment:** Vercel (Frontend), Vercel (Backend).
 
-## Instrucciones de Instalación
+## Installation Instructions
 
-No es necesario instalar localmente, ya que el proyecto está desplegado en Vercel. Simplemente visita [J`games](https://video-games-project-b881q6e2r-jared-delgados-projects.vercel.app) para empezar.
+No need to install locally, as the project is deployed on Vercel. Simply visit [J`games](https://video-games-project-b881q6e2r-jared-delgados-projects.vercel.app) to get started.
 
+## Contributing
 
-## Contribuir
-
-Actualmente, no hay colaboradores en este proyecto.
+Currently, there are no contributors to this project.
 
 
 
