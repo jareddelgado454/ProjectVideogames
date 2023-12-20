@@ -8,10 +8,6 @@ J`games is a project that allows you to explore and manage information about vid
 
 Visit the live project: [J`games](https://video-games-project-b881q6e2r-jared-delgados-projects.vercel.app)
 
-## Screenshots
-
-_Insert screenshots of your application here._
-
 ## Key Features
 
 - **Exploration:** Search and view detailed information about video games.
